@@ -22,31 +22,31 @@ User - can only view data
 
 ## Setup  Project
 
--Clone project by this command
- git clone https://github.com/srb2305/laravel8.2test.git
+Clone project by this command
+- git clone https://github.com/srb2305/laravel8.2test.git
 
--update composer 
- composer update
+update composer 
+- composer update
 
--migrate command will create database tables and some dummy data.
- php artisan migrate
+migrate command will create database tables and some dummy data.
+- php artisan migrate
 
--Key generate
- php artisan key:generate
+Key generate
+- php artisan key:generate
 
--Run project
- php artisan serve
+Run project
+- php artisan serve
 
 ## Dummy Login credentials
 
-Type	Email	            Passowrd
-Admin	admin@gmail.com	    12345678
-Manager	manager@gmail.com	12345678
-User	admin@gmail.com	    12345678
+- Type	  :  Email	             Passowrd
+- Admin	  :  admin@gmail.com	 12345678
+- Manager :  manager@gmail.com	 12345678
+- User	  :  admin@gmail.com	 12345678
 
 ## Developer
-Saurabh Sahu
-web.saurabhsahu@gmail.com
+- Saurabh Sahu
+- web.saurabhsahu@gmail.com
 
 
 ## License
