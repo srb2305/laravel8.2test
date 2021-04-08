@@ -60,17 +60,21 @@
                     <select name="position" class="form-control" >
                       <option>Select Position</option>
                       @foreach($position as $key => $val)
-                      <option value="{{$key}}">{{$val}}</option>
+                      <option value="{{$key}}"  {{ $key == $result->position ? 'selected=""' : '' }}>{{$val}}</option>
                       @endforeach    
                     </select>
                   </div>
 
+
+                    @php
+                    $depary =   !empty($result->department_id) ? json_decode($result->department_id) : [];
+                    @endphp
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Department Id</label>
+                    <label for="exampleInputPassword1">Department</label>
                     <select multiple name="department_id[]" class="form-control" >
                       <option >Select Department</option>
                       @foreach($department as $key => $val)
-                      <option value="{{$key}}">{{$val}}</option>
+                      <option value="{{$key}}"  {{ in_array($key,$depary) ? 'selected=""' : '' }}>{{$val}}</option>
                       @endforeach    
                     </select>
                   </div>

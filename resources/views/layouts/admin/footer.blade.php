@@ -1,9 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2020-21 <a href="https://adminlte.io">Education-Portal</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Shubham Pandey</b> 
-    </div>
+    <strong>Copyright &copy; 2020-21
   </footer>
 
   <!-- Control Sidebar -->

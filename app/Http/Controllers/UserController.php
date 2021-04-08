@@ -146,7 +146,7 @@ class UserController extends Controller
         $result = [];
 
         foreach ($responce as $key => $value) {
-            $edit = $delete = '';
+            $edit = $delete = $image = '';
             if(isPermission('update')){
                 $edit = '<button class="btn btn-success btn-sm" style="background:white; border-radius:22px;"><a href="user_edit/'.$value->id.'"><i class="fas fa-edit"></i></a></button> ';
             }
@@ -160,15 +160,23 @@ class UserController extends Controller
                 $department .= getDepartment($dv).', ';
              }
             }
+
+            if(!empty($value->image)){
+                $image =  '<img src="'. asset('/images/'.$value->image).'"  style="height:30px">';
+            }
+
+            $date = !empty( $value->created_at) ?  $value->created_at : date('Y-m-d H:i:s');
+            $newDate = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)
+                    ->format('d-m-Y');
             $currentAry = [
                 $value->id,
                 $value->name,
                 $value->email,
                 getPosition($value->position),
                 $department,
-               '<img src="'. asset('/images/'.$value->image).'"  style="height:30px">',
-                $edit.$delete
-               ,
+                $image,
+                $newDate,
+                $edit.$delete ,
                
             ];
             array_push($result, $currentAry);

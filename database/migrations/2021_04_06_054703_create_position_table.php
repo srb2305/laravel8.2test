@@ -15,9 +15,14 @@ class CreatePositionTable extends Migration
     {
         Schema::create('position', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->timestamps();
         });
+
+        // Insert some stuff
+        DB::table('position')->insert(array('title' => 'Admin'));
+        DB::table('position')->insert(array('title' => 'Manager'));
+        DB::table('position')->insert(array('title' => 'User'));
     }
 
     /**

@@ -22,6 +22,32 @@ class CreatePermissionsTable extends Migration
             $table->string('delete');
             $table->timestamps();
         });
+
+        DB::table('permissions')->insert(
+            array(
+                'position_id'=> 1,
+                'read'       => 1,
+                'write'      => 1,
+                'update'     => 1,
+                'delete'     => 1
+            ));
+        DB::table('permissions')->insert(
+            array(
+                'position_id'=> 2,
+                'read'       => 1,
+                'write'      => 1,
+                'update'     => 1,
+                'delete'     => 0
+            ));
+        DB::table('permissions')->insert(
+            array(
+                'position_id'=> 3,
+                'read'       => 1,
+                'write'      => 0,
+                'update'     => 0,
+                'delete'     => 0
+            ));
+
     }
 
     /**

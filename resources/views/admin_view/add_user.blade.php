@@ -46,12 +46,12 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" required="">
                   </div>
                 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="">
                   </div>
                   
                   <div class="form-group">

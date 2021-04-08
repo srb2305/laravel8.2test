@@ -50,7 +50,8 @@
                     <th>Email</th>
                     <th>Position</th>
                     <th>Department</th>
-                    <th>Images</th>
+                    <th>Image</th>
+                     <th>Created At</th>
                     <th>Action</th>
                     
                   </tr>
@@ -118,7 +119,7 @@
             //##### Set Filter Date on first time initialization #####
         },
         //Set Class name to td
-        "columns": [null, null,null,null, null, {className: "td-actions"}, null],        
+        "columns": [null, null,null,null, null,null, {className: "td-actions"}, null],        
     });
      
      $(document).on('click','.delete-data',function(){
