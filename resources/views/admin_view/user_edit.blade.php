@@ -17,12 +17,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add User</h1>
+            <h1>User Update</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add User</li>
+              <li class="breadcrumb-item active">User Update</li>
             </ol>
           </div>
         </div>
@@ -38,7 +38,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add User</h3>
+                <h3 class="card-title">User Update</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -55,15 +55,25 @@
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ $result->email}}">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Position</label>
-                    <input type="text" name="position" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ $result->position}}">
+                   <div class="form-group">
+                    <label for="exampleInputPassword1">Position</label>
+                    <select name="position" class="form-control" >
+                      <option>Select Position</option>
+                      @foreach($position as $key => $val)
+                      <option value="{{$key}}">{{$val}}</option>
+                      @endforeach    
+                    </select>
                   </div>
+
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Department Id</label>
-                    <input type="text" name="department_id" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ $result->department_id}}">
+                    <label for="exampleInputPassword1">Department Id</label>
+                    <select multiple name="department_id[]" class="form-control" >
+                      <option >Select Department</option>
+                      @foreach($department as $key => $val)
+                      <option value="{{$key}}">{{$val}}</option>
+                      @endforeach    
+                    </select>
                   </div>
-                
                 <!-- /.card-body -->
 
                 <div class="card-footer">

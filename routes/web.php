@@ -26,19 +26,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('manager', function () {
-    return view('manger_view/index');
-});
-Route::get('user', function () {
-    return view('user_view/index');
-});
+
 
 
 //Route::middleware([Admin::class])->group(function () {
 
-Route::get('/home', function () {
-    return view('admin_view/index');
-});
+
 
 Route::get('permission', [PermissionController::class, 'index']);
 Route::post('/permission', [PermissionController::class, 'store']);

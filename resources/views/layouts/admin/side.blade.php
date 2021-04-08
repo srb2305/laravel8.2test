@@ -36,35 +36,28 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           
-          <li class="nav-item menu-open">
-            <a href="{{ url('admin') }}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
+          
           <li class="nav-item">
-            <a href="{{ url('user_list') }}" class="nav-link">
+            <a href="{{ url('user_list') }}" class="nav-link {{ getActiveClass(['UserController'],['index','create','edit']) }}">
               <i class="nav-icon fas fa-user"></i>
               <p>User</p>
             </a>
             </li>
             <li class="nav-item">
-            <a href="{{ url('position_list') }}" class="nav-link">
+            <a href="{{ url('position_list') }}" class="nav-link {{ getActiveClass(['PositionController'],['index','create','edit']) }}">
               <i class="nav-icon fas fa-desktop"></i>
               <p>Position</p>
             </a>
             </li>
             <li class="nav-item">
-            <a href="{{ url('department_list') }}" class="nav-link">
+            <a href="{{ url('department_list') }}" class="nav-link {{ getActiveClass(['DepartmentController'],['index','create','edit']) }}">
               <i class="nav-icon fas fa-desktop"></i>
               <p>Department</p>
             </a>
             </li>
-             @if(isPermission('write'))
+             @if(isPermission('delete'))
           <li class="nav-item">
-            <a href="{{ url('permission') }}" class="nav-link">
+            <a href="{{ url('permission') }}" class="nav-link {{ getActiveClass(['PermissionController'],['index','create','edit']) }}">
               <i class="nav-icon fas fa-edit"></i>
               <p>permission</p>
             </a>

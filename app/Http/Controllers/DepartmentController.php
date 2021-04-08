@@ -111,10 +111,10 @@ class DepartmentController extends Controller
         foreach ($responce as $key => $value) {
             $edit = $delete = '';
             if(isPermission('update')){
-                $edit = '<button class="btn btn-success btn-sm" style="background:white; border-radius:22px;"><a href="user_edit/'.$value->id.'"><i class="fas fa-edit"></i></a></button> ';
+                $edit = '<button class="btn btn-success btn-sm" style="background:white; border-radius:22px;"><a href="department_edit/'.$value->id.'"><i class="fas fa-edit"></i></a></button> ';
             }
             if(isPermission('delete')){
-                $delete = '<button class="btn btn-danger btn-sm" style="background:white; border-radius:22px;"><a href="delete-user/'.$value->id.'"><i class="fas fa-trash"></i></a></button>';
+                $delete = '<button class="btn btn-danger btn-sm" style="background:white; border-radius:22px;"><a href="delete-department/'.$value->id.'"><i class="fas fa-trash"></i></a></button>';
             }
             $currentAry = [
                 $value->id,

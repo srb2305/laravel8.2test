@@ -71,12 +71,12 @@
 
                   <div class="form-group">
                     <label for="exampleInputPassword1">Department Id</label>
-                    <select name="department_id" class="form-control" >
+                    <select multiple name="department_id[]" class="form-control" >
                       <option>Select Department</option>
                       @foreach($department as $key => $val)
                       <option value="{{$key}}">{{$val}}</option>
                       @endforeach    
-                    </select>
+                    </select >
                   </div>
 
                   <div class="form-group">

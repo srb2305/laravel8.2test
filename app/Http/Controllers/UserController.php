@@ -64,11 +64,10 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'position' =>  $request->position,
-            'department_id' =>  $request->department_id,
+            'department_id' => !empty($request->department_id) ? json_encode($request->department_id) : '',
             'image' => $fileName,
         ]; 
-            
-            
+           
         
         $save= DB::table('users')->insert($array);
         if($save){
@@ -99,7 +98,9 @@ class UserController extends Controller
     {
         $result = DB::table('users')->where('id','=',$id)
                 ->first();
-        return view('admin_view/user_edit',compact('result'));    
+        $position = DB::table('position')->pluck('title','id');
+        $department = DB::table('department')->pluck('name','id');
+        return view('admin_view/user_edit',compact('result','position','department'));    
     }
 
     /**
@@ -116,7 +117,7 @@ class UserController extends Controller
             'name' =>  $request->name,
             'email' => $request->email,
             'position' =>  $request->position,
-            'department_id' =>  $request->department_id,
+            'department_id' => !empty($request->department_id) ? json_encode($request->department_id) : '',
              ];
        DB::table('users')->where('id',$id)
             ->update($array);
@@ -152,13 +153,19 @@ class UserController extends Controller
             if(isPermission('delete')){
                 $delete = '<button class="btn btn-danger btn-sm" style="background:white; border-radius:22px;"><a href="delete-user/'.$value->id.'"><i class="fas fa-trash"></i></a></button>';
             }
-
+            $department = '';
+            if(!empty($value->department_id)){
+             $arrayDepartment =  json_decode($value->department_id);
+             foreach ($arrayDepartment as $dk => $dv) {
+                $department .= getDepartment($dv).', ';
+             }
+            }
             $currentAry = [
                 $value->id,
                 $value->name,
                 $value->email,
                 getPosition($value->position),
-                getDepartment($value->department_id),
+                $department,
                '<img src="'. asset('/images/'.$value->image).'"  style="height:30px">',
                 $edit.$delete
                ,
